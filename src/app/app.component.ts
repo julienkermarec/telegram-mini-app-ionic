@@ -1,4 +1,4 @@
-import { Component, inject, OnInit, ViewEncapsulation } from '@angular/core';
+import { Component, inject, OnDestroy, OnInit, ViewEncapsulation } from '@angular/core';
 import { Router } from '@angular/router';
 import { SwUpdate } from '@angular/service-worker';
 
@@ -18,7 +18,7 @@ import { ButtonType, FollowingType, TelegramWebApp } from '@m1cron-labs/ng-teleg
   styleUrls: ['./app.component.scss'],
   encapsulation: ViewEncapsulation.None
 })
-export class AppComponent implements OnInit {
+export class AppComponent implements OnInit, OnDestroy {
   private readonly telegram = inject(TelegramWebApp);
   appPages = [
     {
@@ -56,13 +56,16 @@ export class AppComponent implements OnInit {
   ) {
     this.initializeApp();
   }
+  ngOnDestroy(): void {
+    this.telegram.close();
+  }
 
   async ngOnInit() {
+    this.telegram.ready();
     await this.storage.create();
     this.checkLoginStatus();
     this.listenForLoginEvents();
     console.log('Telegram Web App is ready', this.telegram.initDataUnsafe);
-    this.telegram.ready();
 
     // this.swUpdate.versionUpdates.subscribe(async res => {
     //   const toast = await this.toastCtrl.create({

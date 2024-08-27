@@ -5,7 +5,7 @@ import { ButtonType, FollowingType, TelegramWebApp } from '@m1cron-labs/ng-teleg
   templateUrl: 'about.html',
   styleUrls: ['./about.scss'],
 })
-export class AboutPage implements OnInit, OnDestroy {
+export class AboutPage implements OnInit {
   @ViewChild('webview_data') webview_data: ElementRef<any>;
   @ViewChild('theme_data') theme_data: ElementRef<any>;
   @ViewChild('main_btn') main_btn: ElementRef<any>;
@@ -38,9 +38,10 @@ export class AboutPage implements OnInit, OnDestroy {
   ngOnInit() {
     this.setThemeClass();
     this.telegram.onEvent('themeChanged', this.setThemeClass);
+    this.initAll();
   }
 
-  test(){
+  initAll(){
 
     this.init(null);
     this.initMenu();
@@ -50,9 +51,6 @@ export class AboutPage implements OnInit, OnDestroy {
 
   }
 
-  ngOnDestroy(): void {
-    this.telegram.close();
-  }
   openTelegramLink(url) {
     this.telegram.openLink(url);
   }
