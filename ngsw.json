@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1724746391753,
+  "timestamp": 1724747528301,
   "index": "https://julienkermarec.github.io/telegram-mini-app-ionic/index.html",
   "assetGroups": [
     {
@@ -54,7 +54,7 @@
         "https://julienkermarec.github.io/telegram-mini-app-ionic/7356.911eacb1ce959b5e.js",
         "https://julienkermarec.github.io/telegram-mini-app-ionic/7372.cdc06af93bf29a3d.js",
         "https://julienkermarec.github.io/telegram-mini-app-ionic/7428.00333f12de3e896b.js",
-        "https://julienkermarec.github.io/telegram-mini-app-ionic/7571.54e6d13d27cc24f4.js",
+        "https://julienkermarec.github.io/telegram-mini-app-ionic/7571.ab76150cc1459918.js",
         "https://julienkermarec.github.io/telegram-mini-app-ionic/7643.3cf717fdb2b04f09.js",
         "https://julienkermarec.github.io/telegram-mini-app-ionic/7720.a6a43e0d2f523645.js",
         "https://julienkermarec.github.io/telegram-mini-app-ionic/7886.a4802f212d99a752.js",
@@ -75,11 +75,11 @@
         "https://julienkermarec.github.io/telegram-mini-app-ionic/9977.4959e972cee1457f.js",
         "https://julienkermarec.github.io/telegram-mini-app-ionic/common.b92403c185d83c16.js",
         "https://julienkermarec.github.io/telegram-mini-app-ionic/index.html",
-        "https://julienkermarec.github.io/telegram-mini-app-ionic/main.da6ba8742a05660e.js",
+        "https://julienkermarec.github.io/telegram-mini-app-ionic/main.7189cbdb7366d6dd.js",
         "https://julienkermarec.github.io/telegram-mini-app-ionic/polyfills-core-js.b7566114cef0ed10.js",
         "https://julienkermarec.github.io/telegram-mini-app-ionic/polyfills-dom.71edb6d9230938a1.js",
         "https://julienkermarec.github.io/telegram-mini-app-ionic/polyfills.c12132f128f57009.js",
-        "https://julienkermarec.github.io/telegram-mini-app-ionic/runtime.80a09be9b7972c14.js",
+        "https://julienkermarec.github.io/telegram-mini-app-ionic/runtime.6e749371c958ff9d.js",
         "https://julienkermarec.github.io/telegram-mini-app-ionic/styles.618db50bb56adf77.css"
       ],
       "patterns": []
@@ -168,7 +168,7 @@
     "https://julienkermarec.github.io/telegram-mini-app-ionic/7356.911eacb1ce959b5e.js": "633c19455326cfc11043807f2af36e559df6ae3e",
     "https://julienkermarec.github.io/telegram-mini-app-ionic/7372.cdc06af93bf29a3d.js": "481571b8b2499fd2f82c93a75d054bad6c9a8ab1",
     "https://julienkermarec.github.io/telegram-mini-app-ionic/7428.00333f12de3e896b.js": "08b82ca056c34ab349f7db1c1110ef4740f547f3",
-    "https://julienkermarec.github.io/telegram-mini-app-ionic/7571.54e6d13d27cc24f4.js": "ee9f5f7d991efe0d361e3f965c25a466353f85b6",
+    "https://julienkermarec.github.io/telegram-mini-app-ionic/7571.ab76150cc1459918.js": "cb26676cc49e9c74c4377c3b1a0df97048f87b91",
     "https://julienkermarec.github.io/telegram-mini-app-ionic/7643.3cf717fdb2b04f09.js": "679b6f8c9bd1fedef8755014be7e66aa68c6e975",
     "https://julienkermarec.github.io/telegram-mini-app-ionic/7720.a6a43e0d2f523645.js": "d4b07a609609bc87501fe6d20e87df9847b434b2",
     "https://julienkermarec.github.io/telegram-mini-app-ionic/7886.a4802f212d99a752.js": "558bc31d6c631fe8bbe86ddc8c7a355967656d2a",
@@ -215,12 +215,12 @@
     "https://julienkermarec.github.io/telegram-mini-app-ionic/assets/img/speakers/rabbit.jpg": "5286740d99c900d080da59c511865f495e8c6266",
     "https://julienkermarec.github.io/telegram-mini-app-ionic/assets/img/speakers/turtle.jpg": "8bf240a802062bf0ee3c1b31ff12cd9158b5734e",
     "https://julienkermarec.github.io/telegram-mini-app-ionic/common.b92403c185d83c16.js": "cba123674e2abcf23b635209aed3b79062db73e2",
-    "https://julienkermarec.github.io/telegram-mini-app-ionic/index.html": "b7207cf7ce2244ede6ade022a22e13ef5a8e0d39",
-    "https://julienkermarec.github.io/telegram-mini-app-ionic/main.da6ba8742a05660e.js": "2d91691d4686c74f5a5f2208cf1b79f1f95830bd",
+    "https://julienkermarec.github.io/telegram-mini-app-ionic/index.html": "8730bae3bda08b0df1681224c3249cdbeaa7bc22",
+    "https://julienkermarec.github.io/telegram-mini-app-ionic/main.7189cbdb7366d6dd.js": "fa9ad777061ed08e66624da8cbebbfa928085516",
     "https://julienkermarec.github.io/telegram-mini-app-ionic/polyfills-core-js.b7566114cef0ed10.js": "74d69367d42b17dab4268dddc71d8c6d1bb4d8dd",
     "https://julienkermarec.github.io/telegram-mini-app-ionic/polyfills-dom.71edb6d9230938a1.js": "510495a0b2fe89690b02e95fe303d4ce17c2e7bb",
     "https://julienkermarec.github.io/telegram-mini-app-ionic/polyfills.c12132f128f57009.js": "eb1aa79a4d66e441aafdc75535999764b9c69be0",
-    "https://julienkermarec.github.io/telegram-mini-app-ionic/runtime.80a09be9b7972c14.js": "7b22f0fb2a0fc704e4c86b47d73b1defdcf45525",
+    "https://julienkermarec.github.io/telegram-mini-app-ionic/runtime.6e749371c958ff9d.js": "e94d1f96299dc92588fb2da6e4be13f8c2c071e1",
     "https://julienkermarec.github.io/telegram-mini-app-ionic/styles.618db50bb56adf77.css": "7aa8f2725deaf7fed23406d105660ceb6edee3e0"
   },
   "navigationUrls": [
