@@ -13,6 +13,7 @@ import { LinksService } from "../environment-services-lib/links/links-service";
 import { PlatformInfoService } from "../environment-services-lib/platform-info/platform-info.service";
 import { ModalService } from "../environment-services-lib/modal/modal.service";
 import { HapticFeedbackService } from "../environment-services-lib/haptic-feedback/haptic-feedback.service";
+import { StorageService } from "../environment-services-lib/storage/storage.service";
 
 export const EnvironmentServicesProviders: Provider[] = [
   {
@@ -46,5 +47,9 @@ export const EnvironmentServicesProviders: Provider[] = [
   {
     provide: HapticFeedbackService,
     useClass: TgHapticFeedbackService
+  },
+  {
+    provide: StorageService,
+    useClass: TgStorageService
   }
 ];

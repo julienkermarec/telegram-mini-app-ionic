@@ -77,7 +77,6 @@
           <li><ion-button (click)="requestVideo(this);">Request Video</ion-button> <span></span></li>
           <li><ion-button (click)="requestAudio(this);">Request Audio</ion-button> <span></span></li>
           <li><ion-button (click)="requestAudioVideo(this);">Request Audio+Video</ion-button> <span></span></li>
-          <li><ion-button (click)="testClipboard(this);" id="clipboard_test">Read from clipboard</ion-button> <span></span></li>
       </ul>
       <ul>
           <li><ion-button (click)="requestWriteAccess(this);">Request write access</ion-button> <span></span></li>
@@ -116,7 +115,7 @@
   </ul>
 
   <p>Cloud storage:</p>
-  <form onsubmit="saveCloudForm(this, event);">
+  <form name="form" (submit)="saveCloudForm(this, $event);">
       <table class="table table-bordered small">
           <thead>
           <tr>
@@ -127,9 +126,16 @@
           </thead>
           <tbody id="cloud_rows"></tbody>
           <tfoot>
+            <tr *ngFor="let item of cloudStorageKeys; let i = index;" >
+              <td>{{item.key}}</td>
+              <td>{{item.value}}</td>
+              <td><ion-button (click)="editCloudRow(this, $event, i);">Edit</ion-button>
+                <ion-button (click)="deleteCloudRow(this, $event, i);">Delete</ion-button>
+              </td>
+            </tr>
           <tr>
-              <td><input type="text" name="key" /></td>
-              <td><input type="text" name="value" /></td>
+              <td><ion-input type="text"  [ngModelOptions]="{standalone: true}" [(ngModel)]="form.key"></ion-input></td>
+              <td><ion-input type="text"  [ngModelOptions]="{standalone: true}"  [(ngModel)]="form.value"></ion-input></td>
               <td>
                   <ion-button type="submit">Save</ion-button>
                   <ion-button type="reset">Clear</ion-button>
