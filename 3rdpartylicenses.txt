@@ -168,6 +168,9 @@ MIT
 @ionic/storage-angular
 MIT
 
+@m1cron-labs/ng-telegram-mini-app
+MIT
+
 ionic-loader
 
 localforage
