@@ -1,75 +1,186 @@
+
 <ion-content>
   <ion-header class="ion-no-border">
     <ion-toolbar>
+      <ion-title>title</ion-title>
       <ion-buttons slot="start">
         <ion-menu-button></ion-menu-button>
       </ion-buttons>
-      <ion-buttons slot="end">
-        <ion-button (click)="presentPopover($event)">
-          <ion-icon slot="icon-only" ios="ellipsis-horizontal" md="ellipsis-vertical"></ion-icon>
-        </ion-button>
-      </ion-buttons>
     </ion-toolbar>
   </ion-header>
+  
+  <section id="top_sect" class="second">
+    <ion-button id="main_btn" #main_btn (click)="sendMessage('');">Send «Hello, World!»</ion-button>
+    <ion-button id="with_webview_btn" #with_webview_btn (click)="sendMessage('', true);">Send «Hello, World!» with inline webview
+      button</ion-button>
+    <ion-button id="data_btn" (click)="sendTime(true);">Send current time to bot (x10)</ion-button>
+    <ion-button (click)="expand();">Expand Webview</ion-button>
+    <ion-button (click)="toggleBackButton(this);">Show Back Button</ion-button>
+    <ion-button (click)="toggleSettingsButton(this);">Show Settings Button</ion-button>
+    <ion-button (click)="toggleMainButton(this);">Hide Main Button</ion-button>
+    <ion-button (click)="toggleSwipeBehavior(this);">Disable Vertical Swypes</ion-button>
+    <input type="text" placeholder="Input text in regular input..." id="regular_field" #regular_field/>
+    <div class="input" contenteditable="true" data-placeholder="Input text in contenteditable field..." #text_field id="text_field">
+    </div>
+    <div id="peer_wrap" style="display:none">
+      <img id="peer_photo" class="chat_img" src="">
+      <span id="peer_name"></span>
+    </div>
+    <div class="sect_row">Header: <input type="color" id="header_color_input" />
+      <select id="header_color_sel">
+        <option value="bg_color" selected>bg_color</option>
+        <option value="secondary_bg_color">secondary_bg_color</option>
+        <option value="custom" id="header_color_val">custom...</option>
+      </select>
+    </div>
+    <div class="sect_row">Background: <input type="color" #bg_color_input id="bg_color_input" />
+      <select #bg_color_sel id="bg_color_sel">
+        <option value="bg_color" selected>bg_color</option>
+        <option value="secondary_bg_color">secondary_bg_color</option>
+        <option value="custom" id="bg_color_val">custom...</option>
+      </select>
+    </div>
+  </section>
 
-  <div class="about-header">
-    <!-- Instead of loading an image each time the select changes, use opacity to transition them -->
-    <div class="about-image madison" [ngStyle]="location === 'madison' && {'opacity': '1'}"></div>
-    <div class="about-image austin" [ngStyle]="location === 'austin' && {'opacity': '1'}"></div>
-    <div class="about-image chicago" [ngStyle]="location === 'chicago' && {'opacity': '1'}"></div>
-    <div class="about-image seattle" [ngStyle]="location === 'seattle' && {'opacity': '1'}"></div>
-  </div>
+  <section>
+    <div id="btn_status" class="hint" style="display: none;"></div>
 
-  <div class="about-info">
-    <h3 class="ion-padding-top ion-padding-start">About</h3>
+    <p>Test links:</p>
+    <ul>
+      <li><a id="regular_link" #regular_link href="?nextpage=1">Regular link #1</a> (opens inside webview)</li>
+      <li><a href="https://telegram.org/" target="_blank">target="_blank" link</a> (opens outside webview)</li>
+      <li><a href="javascript:window.open('https://telegram.org/');">window.open() link</a> (opens outside webview)</li>
+      <li><a href="https://t.me/like">LikeBot t.me link</a> (opens inside Telegram app)</li>
+      <li><a (click)="openTelegramLink('https://t.me/vote');">web_app_open_tg_link()</a> (opens
+        inside Telegram app)</li>
+      <li><a (click)="openLink('https://google.com/');">web_app_open_link()</a> (opens outside
+        webview)</li>
+      <li><a href="tg://resolve?domain=vote">VoteBot tg:// link</a> (does not open)</li>
+      <li><ion-button
+          (click)="openLinkTryInstantView('https://telegra.ph/api',true);">web_app_open_link(try_instant_view:true)</ion-button>
+        (opens IV inside Telegram app)</li>
+      <li><a
+          (click)="openTelegramLink('https://t.me/DurgerKingBot/menu');">web_app_open_tg_link(webapp_direct_link)</a>
+        (opens with confirm for the first time, then without)</li>
+    </ul>
+    <ul>
+      <li><ion-button (click)="openLinkTryBrowser('https://telegram.org','chrome')">telegram.org</ion-button>(opens in Chrome)</li>
+      <li><ion-button (click)="openLinkTryBrowser('https://telegram.org', 'firefox')">telegram.org</ion-button>(opens in Firefox)</li>
+      <li><ion-button (click)="openLinkTryBrowser('https://telegram.org','safari')">telegram.org</ion-button>(opens in Safari)</li>
+      <li><ion-button (click)="openLinkTryBrowser('https://telegram.org','opera')">telegram.org</ion-button>(opens in Opera)</li>
+      <li><ion-button (click)="closeReturnBack()">Return back</ion-button>(Android only)</li>
+    </ul>
 
-    <p class="ion-padding-start ion-padding-end">
-      The Ionic Conference is a one-day conference on {{ conferenceDate | date: 'mediumDate' }} featuring talks from the Ionic team. It is focused on Ionic applications being built with Ionic Framework. This includes migrating apps to the latest version of the framework, Angular concepts, Webpack, Sass, and many other technologies used in Ionic 2. Tickets are completely sold out, and we’re expecting more than 1000 developers – making this the largest Ionic conference ever!
-    </p>
+    <p>Test permissions:</p>
+    <div class="columns">
+      <ul>
+        <li><ion-button (click)="requestLocation(this);">Request Location</ion-button> <span></span></li>
+        <li><ion-button (click)="requestVideo(this);">Request Video</ion-button> <span></span></li>
+        <li><ion-button (click)="requestAudio(this);">Request Audio</ion-button> <span></span></li>
+        <li><ion-button (click)="requestAudioVideo(this);">Request Audio+Video</ion-button> <span></span></li>
+        <li><ion-button (click)="testClipboard(this);" id="clipboard_test">Read from clipboard</ion-button>
+          <span></span></li>
+      </ul>
+      <ul>
+        <li><ion-button (click)="requestWriteAccess(this);">Request write access</ion-button> <span></span>
+        </li>
+        <li><ion-button (click)="requestPhoneNumber(this);">Request phone number</ion-button>
+          <span></span><br><br></li>
+        <li><ion-button (click)="requestServerTime(this);">Request server time</ion-button> (invokes custom
+          method) <span></span></li>
+      </ul>
+    </div>
 
-    <h3 class="ion-padding-top ion-padding-start">Details</h3>
+    <p>Test alerts:</p>
+    <div class="columns">
+      <ul>
+        <li><a onclick="alert('Hello!');">alert</a></li>
+        <li><a onclick="confirm('Are you sure?');">confirm</a></li>
+        <li><a onclick="prompt('How old are you?');">prompt</a></li>
+      </ul>
+      <ul>
+        <li><a (click)="showAlert('Hello!');">showAlert</a></li>
+        <li><a (click)="showConfirm('Are you sure?');">showConfirm</a></li>
+        <li><a (click)="requestWriteAccess();">requestWriteAccess</a></li>
+        <li><a (click)="requestContact();">requestContact</a></li>
+        <li><a (click)="showPopup();">showPopup</a></li>
+        <li><a (click)="showScanQrPopup();">showScanQrPopup</a></li>
+        <li><a (click)="showScanQrPopup(true);">showScanQrPopup (links only)</a></li>
+      </ul>
+    </div>
 
-    <ion-list lines="none">
-      <ion-item>
-        <ion-select label="Location" [(ngModel)]="location" [interfaceOptions]="selectOptions">
-          <ion-select-option value="madison">Madison, WI</ion-select-option>
-          <ion-select-option value="austin">Austin, TX</ion-select-option>
-          <ion-select-option value="chicago">Chicago, IL</ion-select-option>
-          <ion-select-option value="seattle">Seattle, WA</ion-select-option>
-        </ion-select>
-      </ion-item>
-      <ion-item button="true" id="open-date-input">
-        <ion-label>
-          Date
-        </ion-label>
-        <ion-text slot="end">{{ conferenceDate | date: 'mediumDate' }}</ion-text>
-        <ion-popover id="date-input-popover" trigger="open-date-input" [showBackdrop]="false" side="top" alignment="end">
-          <ng-template>
-            <ion-datetime max="2056" [(ngModel)]="conferenceDate" presentation="date"></ion-datetime>
-          </ng-template>
-        </ion-popover>
-      </ion-item>
-    </ion-list>
+    <p>Haptics:</p>
+    <ul>
+      <li>Impact: <a (click)="hapticFeedbackImpactOccurred('heavy');">heavy</a>, &nbsp; <a
+          (click)="hapticFeedbackImpactOccurred('light');">light</a>, &nbsp; <a
+          (click)="hapticFeedbackImpactOccurred('medium');">medium</a>, &nbsp; <a
+          (click)="hapticFeedbackImpactOccurred('rigid');">rigid</a>, &nbsp; <a
+          (click)="hapticFeedbackImpactOccurred('soft');">soft</a><br><br></li>
+      <li>Notification: <a (click)="hapticFeedbackNotificationOccurred('error');">error</a>,
+        &nbsp; <a (click)="hapticFeedbackNotificationOccurred('success');">success</a>, &nbsp;
+        <a (click)="hapticFeedbackNotificationOccurred('warning');">warning</a><br><br></li>
+      <li>Selection: <a (click)="hapticFeedbackSelectionChanged();">changed</a><br><br></li>
+    </ul>
 
-    <h3 class="ion-padding-top ion-padding-start">Internet</h3>
+    <p>Cloud storage:</p>
+    <form onsubmit="saveCloudForm(this, event);">
+      <table class="table table-bordered small">
+        <thead>
+          <tr>
+            <th width="20%">Key</th>
+            <th width="70%">Value</th>
+            <th width="10%"></th>
+          </tr>
+        </thead>
+        <tbody id="cloud_rows"></tbody>
+        <tfoot>
+          <tr>
+            <td><input type="text" name="key" /></td>
+            <td><input type="text" name="value" /></td>
+            <td>
+              <ion-button type="submit">Save</ion-button>
+              <ion-button type="reset">Clear</ion-button>
+            </td>
+          </tr>
+        </tfoot>
+      </table>
+    </form>
 
-    <ion-list lines="none">
-      <ion-item>
-        <ion-label>
-          Wifi network
-        </ion-label>
-        <ion-label class="ion-text-end">
-          ica{{conferenceDate | date: 'y'}}
-        </ion-label>
-      </ion-item>
-      <ion-item>
-        <ion-label>
-          Password
-        </ion-label>
-        <ion-label class="ion-text-end">
-          makegoodthings
-        </ion-label>
-      </ion-item>
-    </ion-list>
-  </div>
+    <p>Biometrics:</p>
+    <div class="columns">
+      <ul>
+        <li>isInited: <span class="txt" id="bm_inited">false</span></li>
+        <li>available: <span class="txt" id="bm_available">false</span></li>
+        <li>type: <span class="txt" id="bm_type"></span></li>
+        <li>access_requested: <span class="txt" id="bm_access_requested">false</span> (<a 
+            (click)="biometricRequestAccess(this)">Request access</a>) <span></span></li>
+        <li>access_granted: <span class="txt" id="bm_access_granted">false</span> <span id="bm_settings"
+            style="display:none;">(<a (click)="biometricOpenSettings(this)">Open
+              settings</a>)</span></li>
+        <li>token_saved: <span class="txt" id="bm_token_saved">false</span> (<a 
+            (click)="biometricSetToken(this)">Set token</a>, <a 
+            (click)="biometricRemoveToken(this)">Remove token</a>) <span></span></li>
+        <li>device_id: <span class="txt" id="bm_device_id"></span></li>
+        <li><a (click)="biometricRequestAuth(this)">Request auth</a> <span></span></li>
+      </ul>
+    </div>
+
+    <pre><code #webview_data id="webview_data"></code></pre>
+    <div class="hint">
+      Data passed to webview.
+      <span id="webview_data_status" class="status_need">Checking hash...</span>
+    </div>
+    <pre><code #theme_data id="theme_data"></code></pre>
+    <div class="hint">
+      Theme params
+    </div>
+    <div class="hint">
+      Version: <span id="ver"></span>,
+      platform: <span id="platform"></span>
+    </div>
+  </section>
+
+  <div #viewport_border class="viewport-border"></div>
+  <div #viewport_stable_border class="viewport-stable_border"></div>
+
 </ion-content>

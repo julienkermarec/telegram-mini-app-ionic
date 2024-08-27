@@ -2437,6 +2437,13 @@
   resolved "https://registry.yarnpkg.com/@lmdb/lmdb-win32-x64/-/lmdb-win32-x64-3.0.13.tgz#93bcd6dc24afd1cc60dd88a65b9e4fab32dcf397"
   integrity sha512-UCrMJQY/gJnOl3XgbWRZZUvGGBuKy6i0YNSptgMzHBjs+QYDYR1Mt/RLTOPy4fzzves65O1EDmlL//OzEqoLlA==
 
+"@m1cron-labs/ng-telegram-mini-app@^7.8.0":
+  version "7.8.0"
+  resolved "https://registry.yarnpkg.com/@m1cron-labs/ng-telegram-mini-app/-/ng-telegram-mini-app-7.8.0.tgz#9e94230ab3a49fc70c5fbb8ebaf782706a20d3b4"
+  integrity sha512-aH1l/BR5HrAlB81XlzqanVJUmfjEQdyd9a2XQkboZvYHhzpBFW11R44sZD7QNNX06p9WOXCOsU8/oNCVKewYRw==
+  dependencies:
+    tslib "^2.3.0"
+
 "@msgpackr-extract/msgpackr-extract-darwin-arm64@3.0.3":
   version "3.0.3"
   resolved "https://registry.yarnpkg.com/@msgpackr-extract/msgpackr-extract-darwin-arm64/-/msgpackr-extract-darwin-arm64-3.0.3.tgz#9edec61b22c3082018a79f6d1c30289ddf3d9d11"

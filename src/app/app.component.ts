@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { Component, inject, OnInit, ViewEncapsulation } from '@angular/core';
 import { Router } from '@angular/router';
 import { SwUpdate } from '@angular/service-worker';
 
@@ -11,6 +11,7 @@ import { Storage } from '@ionic/storage-angular';
 
 import { UserData } from './providers/user-data';
 
+import { ButtonType, FollowingType, TelegramWebApp } from '@m1cron-labs/ng-telegram-mini-app';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -18,6 +19,7 @@ import { UserData } from './providers/user-data';
   encapsulation: ViewEncapsulation.None
 })
 export class AppComponent implements OnInit {
+  private readonly telegram = inject(TelegramWebApp);
   appPages = [
     {
       title: 'Schedule',
@@ -59,6 +61,8 @@ export class AppComponent implements OnInit {
     await this.storage.create();
     this.checkLoginStatus();
     this.listenForLoginEvents();
+    console.log('Telegram Web App is ready', this.telegram.initDataUnsafe);
+    this.telegram.ready();
 
     this.swUpdate.versionUpdates.subscribe(async res => {
       const toast = await this.toastCtrl.create({
