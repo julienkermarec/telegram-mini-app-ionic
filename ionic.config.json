@@ -1,7 +1,5 @@
 {
-  "name": "ionic-conference-app",
-  "type": "angular",
-  "integrations": {
-    "capacitor": {}
-  }
+  "name": "blank",
+  "integrations": {},
+  "type": "angular"
 }
