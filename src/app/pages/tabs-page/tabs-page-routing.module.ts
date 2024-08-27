@@ -59,7 +59,7 @@ const routes: Routes = [
       },
       {
         path: '',
-        redirectTo: '/app/tabs/schedule',
+        redirectTo: '/app/tabs/about',
         pathMatch: 'full'
       }
     ]
