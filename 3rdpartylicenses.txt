@@ -71,7 +71,7 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 @ionic/core/components
 
-@m1cron-labs/ng-telegram-mini-app
+@zakarliuka/ng-telegram-webapp
 MIT
 
 ionic-loader
