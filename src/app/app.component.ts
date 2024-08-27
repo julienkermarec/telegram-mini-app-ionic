@@ -64,25 +64,25 @@ export class AppComponent implements OnInit {
     console.log('Telegram Web App is ready', this.telegram.initDataUnsafe);
     this.telegram.ready();
 
-    this.swUpdate.versionUpdates.subscribe(async res => {
-      const toast = await this.toastCtrl.create({
-        message: 'Update available!',
-        position: 'bottom',
-        buttons: [
-          {
-            role: 'cancel',
-            text: 'Reload'
-          }
-        ]
-      });
+    // this.swUpdate.versionUpdates.subscribe(async res => {
+    //   const toast = await this.toastCtrl.create({
+    //     message: 'Update available!',
+    //     position: 'bottom',
+    //     buttons: [
+    //       {
+    //         role: 'cancel',
+    //         text: 'Reload'
+    //       }
+    //     ]
+    //   });
 
-      await toast.present();
+    //   await toast.present();
 
-      toast
-        .onDidDismiss()
-        .then(() => this.swUpdate.activateUpdate())
-        .then(() => window.location.reload());
-    });
+    //   toast
+    //     .onDidDismiss()
+    //     .then(() => this.swUpdate.activateUpdate())
+    //     .then(() => window.location.reload());
+    // });
   }
 
   initializeApp() {
